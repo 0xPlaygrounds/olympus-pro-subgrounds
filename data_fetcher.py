@@ -2,7 +2,7 @@ from subgrounds.subgrounds import Subgrounds
 import pandas as pd
 
 sg = Subgrounds()
-olympus_pro = sg.load_subgraph('http://localhost:8000/subgraphs/name/drondin/olympus-pro')
+olympus_pro = sg.load_subgraph('https://api.thegraph.com/subgraphs/name/0xplaygrounds/olympus-pro-subgraph')
 
 def fetch_bonds_since(startTimestamp: int) -> pd.DataFrame:
   bonds = olympus_pro.Query.bonds(
