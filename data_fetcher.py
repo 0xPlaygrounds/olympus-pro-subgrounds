@@ -7,8 +7,8 @@ olympus_pro = sg.load_subgraph('https://api.thegraph.com/subgraphs/name/0xplaygr
 def fetch_bonds_since(startTimestamp: int) -> pd.DataFrame:
   bonds = olympus_pro.Query.bonds(
     orderBy=olympus_pro.Bond.createdAtTimestamp,
-    orderDirection='desc',
-    first=1000,
+    orderDirection='asc',
+    first=5000,
     where=[
       olympus_pro.Bond.createdAtTimestamp > startTimestamp
     ]
@@ -33,8 +33,8 @@ def fetch_bonds_since(startTimestamp: int) -> pd.DataFrame:
 def fetch_user_bonds_since(startTimestamp: int) -> pd.DataFrame:
   user_bonds = olympus_pro.Query.userBonds(
     orderBy=olympus_pro.UserBond.timestamp,
-    orderDirection='desc',
-    first=100000,
+    orderDirection='asc',
+    first=5000,
     where=[
       olympus_pro.UserBond.timestamp > startTimestamp
     ]
@@ -57,8 +57,8 @@ def fetch_user_bonds_since(startTimestamp: int) -> pd.DataFrame:
 def fetch_user_redemptions_since(startTimestamp: int) -> pd.DataFrame:
   user_redemptions = olympus_pro.Query.userRedemptions(
     orderBy=olympus_pro.UserRedemption.timestamp,
-    orderDirection='desc',
-    first=100000,
+    orderDirection='asc',
+    first=5000,
     where=[
       olympus_pro.UserRedemption.timestamp > startTimestamp
     ]
@@ -79,8 +79,8 @@ def fetch_user_redemptions_since(startTimestamp: int) -> pd.DataFrame:
 def fetch_bond_day_data_since(startTimestamp: int) -> pd.DataFrame:
   day_datas = olympus_pro.Query.bondDayDatas(
     orderBy=olympus_pro.BondDayData.timestamp,
-    orderDirection='desc',
-    first=1000000,
+    orderDirection='asc',
+    first=5000,
     where=[
       olympus_pro.BondDayData.timestamp > startTimestamp
     ]
@@ -111,8 +111,8 @@ def fetch_bond_day_data_since(startTimestamp: int) -> pd.DataFrame:
 def fetch_bond_hour_data_since(startTimestamp: int) -> pd.DataFrame:
   hour_datas = olympus_pro.Query.bondHourDatas(
     orderBy=olympus_pro.BondHourData.timestamp,
-    orderDirection='desc',
-    first=1000000,
+    orderDirection='asc',
+    first=5000,
     where=[
       olympus_pro.BondHourData.timestamp > startTimestamp
     ]
